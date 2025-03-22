@@ -23,7 +23,7 @@ def fetch_snippets(query, api_key):
     snippets = [i.get("snippet", "") for i in organic_results if "snippet" in i]
     return " ".join(snippets)
 
-api_key = "5b96d07b1e18b3024b85366d7c4ff80f95b274682bdbc328a38d6fe757d164dd"
+api_key = st.secrets["API_KEY"]
 query = "What is happenning in kerala now"
 snippets_paragraph = fetch_snippets(query, api_key)
 
