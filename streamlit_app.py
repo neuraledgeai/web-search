@@ -24,7 +24,7 @@ def fetch_snippets(query, api_key):
     return " ".join(snippets)
 
 api_key = st.secrets["API_KEY"]
-query = "What is happenning in kerala now"
+query = "What is the latest improvements in Tesla Bots?"
 snippets_paragraph = fetch_snippets(query, api_key)
 
 st.write(snippets_paragraph)
