@@ -1,3 +1,4 @@
+import streamlit as st
 from serpapi import GoogleSearch
 
 def fetch_snippets(query, api_key):
