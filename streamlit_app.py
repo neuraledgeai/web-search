@@ -23,6 +23,6 @@ def fetch_snippets_with_linked_sources(query, api_key):
     
 api_key = st.secrets["API_KEY"]
 query = "What is the latest improvements in Tesla Bots?"
-snippets_paragraph = fetch_snippets_with_sources(query, api_key)
+snippets_paragraph = fetch_snippets_with_linked_sources(query, api_key)
 
 st.write(snippets_paragraph)
