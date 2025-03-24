@@ -8,13 +8,13 @@ def fetch_snippets_with_sources(query, api_key):
     organic_results = results.get("organic_results", [])
     
     snippets = [i.get("snippet", "") for i in organic_results if "snippet" in i]
-    sources = [i.get("source", "Unknown Source") for i in organic_results if "source" in i]
+    sources = [(i.get("source", "Unknown Source"), i.get("link", "#")) for i in organic_results if "source" in i and "link" in i]
 
     snippets_text = " ".join(snippets)
-    sources_text = "Sources: " + ", ".join(set(sources)) if sources else "Sources: None"
+    sources_text = "Sources:\n" + "\n".join([f"- {source}: {link}" for source, link in set(sources)]) if sources else "Sources: None"
 
     return f"{snippets_text}\n\n{sources_text}"
-
+    
 api_key = st.secrets["API_KEY"]
 query = "What is the latest improvements in Tesla Bots?"
 snippets_paragraph = fetch_snippets_with_sources(query, api_key)
